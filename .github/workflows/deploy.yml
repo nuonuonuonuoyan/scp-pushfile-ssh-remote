@@ -13,7 +13,7 @@ jobs:
         uses: actions/checkout@master
 
       - name: use self's actions
-        uses: nuonuonuonuoyan/scp-pushfile-ssh-remote@v1.0.0
+        uses: nuonuonuonuoyan/scp-pushfile-ssh-remote@v1.0.1
         with:
           user: ${{ secrets.USER }}
           host: ${{ secrets.HOST }}
@@ -21,7 +21,7 @@ jobs:
           scp_key: ${{ secrets.SCP_KEY }}
           source: "/"
           target: "/tests"
-          # password: ${{ secrets.PASSWORD }}
+          password: ${{ secrets.PASSWORD }}
           command: |
             cd /tests
             git pull

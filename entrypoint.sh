@@ -56,7 +56,7 @@ if [ $? -eq 0 ]
 then
    echo "项目已成功拷贝到服务器相应目录下"
    echo "开始连接远程服务器..."
-   if [ $INPUT_PASSWORD == "" ]
+   if [ test $INPUT_PASSWORD && test $INPUT_PASSWORD == "" ]
    then
      sh -c "ssh -i $ID_RSA -o StrictHostKeyChecking=no -p $INPUT_PORT ${INPUT_USER}@${INPUT_HOST} < $HOME/command.sh"
    else
