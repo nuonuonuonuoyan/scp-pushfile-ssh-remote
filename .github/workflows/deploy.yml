@@ -1,0 +1,28 @@
+name: "ssh-scp"
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  pushDepoly:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: clone githubCode
+        uses: actions/checkout@master
+
+      - name: use self's actions
+        uses: nuonuonuonuoyan/auto-deploy@v1.6.0
+        with:
+          user: ${{ secrets.USER }}
+          host: ${{ secrets.HOST }}
+          key: ${{ secrets.KEY }}
+          scp_key: ${{ secrets.SCP_KEY }}
+          source: "/"
+          target: "/tests"
+          # password: ${{ secrets.PASSWORD }}
+          command: |
+            cd /tests
+            git pull
+            echo `ls -a`
