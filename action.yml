@@ -1,0 +1,46 @@
+name: "Remote SSH Server"
+author: "峡谷一枝花，叫我Gala8"
+description: "自动化部署Web和Nodejs项目"
+inputs:
+  command:
+    description: "终端需要执行的命令（对Web项目而言，将打包后的文件放到服务器对应的目录下，配置好nginx即可访问；但对于Node项目可能并不适用，因为其往往是将完整的项目部署到服务器再运行对应的命令，因每个项目的打包命令和启动命令可能不相同，因此选择开放命令行来支持您自行打包并启动项目进行监听等）"
+    required: false
+  user:
+    description: "服务器登录用户名"
+    required: true
+    default: "root"
+  host:
+    description: "服务器的ip"
+    required: true
+    default: "localhost"
+  port:
+    description: "服务器的端口（如不设置，默认使用22端口）"
+    required: false
+    default: "22"
+  key:
+    description: "密钥，用来登录服务器"
+    required: false
+  password:
+    description: "远端服务器登录密码"
+    required: false
+  scp_key:
+    description: "用来传输文件"
+    required: true
+  source:
+    description: "源文件目录，即要上传的文件（文件夹）"
+    required: true
+  target:
+    description: "目标路径，需要放到服务器的目录"
+    required: true
+  exclude:
+    description: "需要排除的文件,为数组格式"
+    required: false
+    default: ""
+
+runs:
+  using: "docker"
+  image: Dockerfile
+
+branding:
+  color: "purple"
+  icon: "airplay"
