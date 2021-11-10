@@ -1,4 +1,4 @@
-name: "Remote SSH Server"
+name: "Remote SSH And SCP "
 author: "峡谷一枝花，叫我Gala8"
 description: "自动化部署Web和Nodejs项目"
 inputs:
