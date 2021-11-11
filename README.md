@@ -34,7 +34,6 @@ jobs:
         with:
           user: ${{ secrets.USER }}
           host: ${{ secrets.HOST }}
-          key: ${{ secrets.KEY }}
           scp_key: ${{ secrets.SCP_KEY }}
           source: '/'
           target: '/home/tests'
