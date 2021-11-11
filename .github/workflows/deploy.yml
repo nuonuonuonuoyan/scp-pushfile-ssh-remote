@@ -21,7 +21,6 @@ jobs:
           scp_key: ${{ secrets.SCP_KEY }}
           source: "/"
           target: "/tests"
-          password: ${{ secrets.PASSWORD }}
           command: |
             cd /tests
             git pull
